@@ -1,0 +1,602 @@
+[
+    {
+      "_id": 1,
+      "series": "Dragon Ball",
+      "question": "Who is Goku?",
+      "answer": "A Saiyan"
+    },
+    {
+      "_id": 2,
+      "series": "Dragon Ball Z",
+      "question": "Who is Goku's brother?",
+      "answer": "Raditz"
+    },
+    {
+      "_id": 3,
+      "series": "Dragon Ball GT",
+      "question": "Who is Baby?",
+      "answer": "A Tuffle parasite"
+    },
+    {
+      "_id": 4,
+      "series": "Dragon Ball Super",
+      "question": "Who is the God of Destruction?",
+      "answer": "Beerus"
+    },
+    {
+      "_id": 5,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the main villain in Dragon Ball Super: Broly?",
+      "answer": "Broly"
+    },
+    {
+      "_id": 6,
+      "series": "Dragon Ball",
+      "question": "What is the name of Goku's first teacher?",
+      "answer": "Master Roshi"
+    },
+    {
+      "_id": 7,
+      "series": "Dragon Ball Z",
+      "question": "Who kills Frieza in Dragon Ball Z?",
+      "answer": "Future Trunks"
+    },
+    {
+      "_id": 8,
+      "series": "Dragon Ball GT",
+      "question": "Who is the main villain in the Shadow Dragons saga?",
+      "answer": "Omega Shenron"
+    },
+    {
+      "_id": 9,
+      "series": "Dragon Ball Super",
+      "question": "Who is the Omni-King?",
+      "answer": "Zeno"
+    },
+    {
+      "_id": 10,
+      "series": "Dragon Ball Movies",
+      "question": "Who does Goku fight in the movie Dragon Ball Z: Resurrection 'F'?",
+      "answer": "Golden Frieza"
+    },
+    {
+      "_id": 11,
+      "series": "Dragon Ball",
+      "question": "Who is Goku's wife?",
+      "answer": "Chi-Chi"
+    },
+    {
+      "_id": 12,
+      "series": "Dragon Ball Z",
+      "question": "Who defeats Cell?",
+      "answer": "Gohan"
+    },
+    {
+      "_id": 13,
+      "series": "Dragon Ball GT",
+      "question": "Who does Pan travel with in Dragon Ball GT?",
+      "answer": "Goku and Trunks"
+    },
+    {
+      "_id": 14,
+      "series": "Dragon Ball Super",
+      "question": "Who is the first mortal to reach Ultra Instinct?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 15,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: Battle of Gods?",
+      "answer": "Beerus"
+    },
+    {
+      "_id": 16,
+      "series": "Dragon Ball",
+      "question": "What technique did Goku learn from Master Roshi?",
+      "answer": "Kamehameha"
+    },
+    {
+      "_id": 17,
+      "series": "Dragon Ball Z",
+      "question": "Who is Gohan's mentor during the Saiyan Saga?",
+      "answer": "Piccolo"
+    },
+    {
+      "_id": 18,
+      "series": "Dragon Ball GT",
+      "question": "Who fuses to become Super Saiyan 4 Gogeta?",
+      "answer": "Goku and Vegeta"
+    },
+    {
+      "_id": 19,
+      "series": "Dragon Ball Super",
+      "question": "Who is the Angel that trains Goku and Vegeta?",
+      "answer": "Whis"
+    },
+    {
+      "_id": 20,
+      "series": "Dragon Ball Movies",
+      "question": "Who does Goku fight in the movie Dragon Ball Z: Fusion Reborn?",
+      "answer": "Janemba"
+    },
+    {
+      "_id": 21,
+      "series": "Dragon Ball",
+      "question": "Who is Goku's rival and friend?",
+      "answer": "Krillin"
+    },
+    {
+      "_id": 22,
+      "series": "Dragon Ball Z",
+      "question": "Who helps Gohan defeat Cell?",
+      "answer": "Goku (from the Otherworld)"
+    },
+    {
+      "_id": 23,
+      "series": "Dragon Ball GT",
+      "question": "Who is the creator of the Black Star Dragon Balls?",
+      "answer": "The Namekians"
+    },
+    {
+      "_id": 24,
+      "series": "Dragon Ball Super",
+      "question": "Who is the leader of Universe 6's team?",
+      "answer": "Hit"
+    },
+    {
+      "_id": 25,
+      "series": "Dragon Ball Movies",
+      "question": "Who fights Hirudegarn in Dragon Ball Z: Wrath of the Dragon?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 26,
+      "series": "Dragon Ball",
+      "question": "What is Goku's Saiyan name?",
+      "answer": "Kakarot"
+    },
+    {
+      "_id": 27,
+      "series": "Dragon Ball Z",
+      "question": "Who teaches Goku the Instant Transmission technique?",
+      "answer": "The Yardrats"
+    },
+    {
+      "_id": 28,
+      "series": "Dragon Ball GT",
+      "question": "Who is Vegeta's main opponent in the Baby Saga?",
+      "answer": "Baby Vegeta"
+    },
+    {
+      "_id": 29,
+      "series": "Dragon Ball Super",
+      "question": "What form does Vegeta use in the Tournament of Power?",
+      "answer": "Super Saiyan Blue Evolution"
+    },
+    {
+      "_id": 30,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the main villain in Dragon Ball Z: The World's Strongest?",
+      "answer": "Dr. Wheelo"
+    },
+    {
+      "_id": 31,
+      "series": "Dragon Ball",
+      "question": "Who does Goku meet in the Muscle Tower?",
+      "answer": "Android 8"
+    },
+    {
+      "_id": 32,
+      "series": "Dragon Ball Z",
+      "question": "Who was the strongest human in Dragon Ball Z?",
+      "answer": "Krillin"
+    },
+    {
+      "_id": 33,
+      "series": "Dragon Ball GT",
+      "question": "What wish starts the events of Dragon Ball GT?",
+      "answer": "Pilaf wishes Goku to be a child again"
+    },
+    {
+      "_id": 34,
+      "series": "Dragon Ball Super",
+      "question": "Who is the mortal stronger than the Gods in Universe 11?",
+      "answer": "Jiren"
+    },
+    {
+      "_id": 35,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the main villain in Dragon Ball Z: Bojack Unbound?",
+      "answer": "Bojack"
+    },
+    {
+      "_id": 36,
+      "series": "Dragon Ball",
+      "question": "Who is Bulma's father?",
+      "answer": "Dr. Brief"
+    },
+    {
+      "_id": 37,
+      "series": "Dragon Ball Z",
+      "question": "Who does Goku fight at the 23rd World Martial Arts Tournament?",
+      "answer": "Piccolo"
+    },
+    {
+      "_id": 38,
+      "series": "Dragon Ball GT",
+      "question": "What transformation does Goku achieve in Dragon Ball GT?",
+      "answer": "Super Saiyan 4"
+    },
+    {
+      "_id": 39,
+      "series": "Dragon Ball Super",
+      "question": "Who is Goku's sparring partner in Dragon Ball Super?",
+      "answer": "Vegeta"
+    },
+    {
+      "_id": 40,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: Cooler's Revenge?",
+      "answer": "Cooler"
+    },
+    {
+      "_id": 41,
+      "series": "Dragon Ball",
+      "question": "Who is the Red Ribbon Army's leader?",
+      "answer": "Commander Red"
+    },
+    {
+      "_id": 42,
+      "series": "Dragon Ball Z",
+      "question": "Who sacrifices himself to kill Majin Buu?",
+      "answer": "Vegeta"
+    },
+    {
+      "_id": 43,
+      "series": "Dragon Ball GT",
+      "question": "Who helps Goku during the final battle in GT?",
+      "answer": "Pan and the other Z Fighters"
+    },
+    {
+      "_id": 44,
+      "series": "Dragon Ball Super",
+      "question": "What is Goku's most powerful transformation in Dragon Ball Super?",
+      "answer": "Ultra Instinct"
+    },
+    {
+      "_id": 45,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: The Tree of Might?",
+      "answer": "Turles"
+    },
+    {
+      "_id": 46,
+      "series": "Dragon Ball",
+      "question": "Who is the final villain Goku faces in the original Dragon Ball series?",
+      "answer": "King Piccolo"
+    },
+    {
+      "_id": 47,
+      "series": "Dragon Ball Z",
+      "question": "Who teaches Goku the Kaio-ken technique?",
+      "answer": "King Kai"
+    },
+    {
+      "_id": 48,
+      "series": "Dragon Ball GT",
+      "question": "Who is the villain in the Super 17 saga?",
+      "answer": "Super Android 17"
+    },
+    {
+      "_id": 49,
+      "series": "Dragon Ball Super",
+      "question": "Who wins the Tournament of Power?",
+      "answer": "Universe 7"
+    },
+    {
+      "_id": 50,
+      "series": "Dragon Ball Movies",
+      "question": "Who does Gohan fight in Dragon Ball Z: Broly - Second Coming?",
+      "answer": "Broly"
+    },
+    {
+      "_id": 51,
+      "series": "Dragon Ball",
+      "question": "Who is the first villain Goku defeats in the Dragon Ball series?",
+      "answer": "Pilaf"
+    },
+    {
+      "_id": 52,
+      "series": "Dragon Ball Z",
+      "question": "Who is the leader of the Ginyu Force?",
+      "answer": "Captain Ginyu"
+    },
+    {
+      "_id": 53,
+      "series": "Dragon Ball GT",
+      "question": "Who fuses with Vegeta to become Super Saiyan 4 Gogeta?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 54,
+      "series": "Dragon Ball Super",
+      "question": "Who is the Supreme Kai of Universe 7?",
+      "answer": "Shin"
+    },
+    {
+      "_id": 55,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: Lord Slug?",
+      "answer": "Lord Slug"
+    },
+    {
+      "_id": 56,
+      "series": "Dragon Ball",
+      "question": "Who teaches Goku the Spirit Bomb?",
+      "answer": "King Kai"
+    },
+    {
+      "_id": 57,
+      "series": "Dragon Ball Z",
+      "question": "Who transforms into Majin Vegeta?",
+      "answer": "Vegeta"
+    },
+    {
+      "_id": 58,
+      "series": "Dragon Ball GT",
+      "question": "Who is Pan's grandfather?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 59,
+      "series": "Dragon Ball Super",
+      "question": "Who is the female Saiyan from Universe 6?",
+      "answer": "Caulifla"
+    },
+    {
+      "_id": 60,
+      "series": "Dragon Ball Movies",
+      "question": "Who is Goku's first enemy in the Dragon Ball Z: Dead Zone movie?",
+      "answer": "Garlic Jr."
+    },
+    {
+      "_id": 61,
+      "series": "Dragon Ball",
+      "question": "Who does Goku fight at the 22nd World Martial Arts Tournament?",
+      "answer": "Tien Shinhan"
+    },
+    {
+      "_id": 62,
+      "series": "Dragon Ball Z",
+      "question": "Who is the first Z Fighter killed by Nappa?",
+      "answer": "Yamcha"
+    },
+    {
+      "_id": 63,
+      "series": "Dragon Ball GT",
+      "question": "Who fuses to form Super 17?",
+      "answer": "Android 17 and Hell Fighter 17"
+    },
+    {
+      "_id": 64,
+      "series": "Dragon Ball Super",
+      "question": "Who is the strongest fighter in Universe 11?",
+      "answer": "Jiren"
+    },
+    {
+      "_id": 65,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: Bio-Broly?",
+      "answer": "Bio-Broly"
+    },
+    {
+      "_id": 66,
+      "series": "Dragon Ball",
+      "question": "Who does Goku marry?",
+      "answer": "Chi-Chi"
+    },
+    {
+      "_id": 67,
+      "series": "Dragon Ball Z",
+      "question": "Who helps Goku form the Super Spirit Bomb?",
+      "answer": "The people of Earth"
+    },
+    {
+      "_id": 68,
+      "series": "Dragon Ball GT",
+      "question": "Who turns Goku back into a child in Dragon Ball GT?",
+      "answer": "Emperor Pilaf"
+    },
+    {
+      "_id": 69,
+      "series": "Dragon Ball Super",
+      "question": "Who is Vegeta's rival from Universe 6?",
+      "answer": "Cabba"
+    },
+    {
+      "_id": 70,
+      "series": "Dragon Ball Movies",
+      "question": "Who does Goku fight in the movie Dragon Ball Z: The Return of Cooler?",
+      "answer": "Metal Cooler"
+    },
+    {
+      "_id": 71,
+      "series": "Dragon Ball",
+      "question": "Who is the first enemy Goku faces in the Red Ribbon Army?",
+      "answer": "General White"
+    },
+    {
+      "_id": 72,
+      "series": "Dragon Ball Z",
+      "question": "Who defeats Frieza on Namek?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 73,
+      "series": "Dragon Ball GT",
+      "question": "Who is the villain in the Baby Saga?",
+      "answer": "Baby"
+    },
+    {
+      "_id": 74,
+      "series": "Dragon Ball Super",
+      "question": "Who is the first mortal to defeat a God of Destruction in battle?",
+      "answer": "Jiren"
+    },
+    {
+      "_id": 75,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: The History of Trunks?",
+      "answer": "Androids 17 and 18"
+    },
+    {
+      "_id": 76,
+      "series": "Dragon Ball",
+      "question": "Who is Goku's first enemy in the original series?",
+      "answer": "Emperor Pilaf"
+    },
+    {
+      "_id": 77,
+      "series": "Dragon Ball Z",
+      "question": "Who is the villain in the Android Saga?",
+      "answer": "Cell"
+    },
+    {
+      "_id": 78,
+      "series": "Dragon Ball GT",
+      "question": "Who is Pan's father?",
+      "answer": "Gohan"
+    },
+    {
+      "_id": 79,
+      "series": "Dragon Ball Super",
+      "question": "Who is the Supreme Kai of Universe 10?",
+      "answer": "Gowasu"
+    },
+    {
+      "_id": 80,
+      "series": "Dragon Ball Movies",
+      "question": "Who fights Broly in Dragon Ball Z: Broly - The Legendary Super Saiyan?",
+      "answer": "Goku, Gohan, and Vegeta"
+    },
+    {
+      "_id": 81,
+      "series": "Dragon Ball",
+      "question": "Who trains Goku after his battle with King Piccolo?",
+      "answer": "Kami"
+    },
+    {
+      "_id": 82,
+      "series": "Dragon Ball Z",
+      "question": "Who does Goku fight in the Otherworld Tournament?",
+      "answer": "Pikkon"
+    },
+    {
+      "_id": 83,
+      "series": "Dragon Ball GT",
+      "question": "Who is the villain in the Super 17 arc?",
+      "answer": "Super 17"
+    },
+    {
+      "_id": 84,
+      "series": "Dragon Ball Super",
+      "question": "Who is Zamasu's fused form?",
+      "answer": "Fused Zamasu"
+    },
+    {
+      "_id": 85,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: Cooler’s Revenge?",
+      "answer": "Cooler"
+    },
+    {
+      "_id": 86,
+      "series": "Dragon Ball",
+      "question": "Who fights Goku at the 21st World Martial Arts Tournament?",
+      "answer": "Jackie Chun"
+    },
+    {
+      "_id": 87,
+      "series": "Dragon Ball Z",
+      "question": "Who fuses with Goku using the Potara Earrings?",
+      "answer": "Vegeta"
+    },
+    {
+      "_id": 88,
+      "series": "Dragon Ball GT",
+      "question": "Who is Uub a reincarnation of?",
+      "answer": "Kid Buu"
+    },
+    {
+      "_id": 89,
+      "series": "Dragon Ball Super",
+      "question": "Who helps Goku unlock Ultra Instinct?",
+      "answer": "Whis"
+    },
+    {
+      "_id": 90,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: Broly - Second Coming?",
+      "answer": "Broly"
+    },
+    {
+      "_id": 91,
+      "series": "Dragon Ball",
+      "question": "Who is the first person Goku meets in the original Dragon Ball?",
+      "answer": "Bulma"
+    },
+    {
+      "_id": 92,
+      "series": "Dragon Ball Z",
+      "question": "Who is the father of Gohan and Goten?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 93,
+      "series": "Dragon Ball GT",
+      "question": "Who is the main villain in the Shadow Dragons saga?",
+      "answer": "Omega Shenron"
+    },
+    {
+      "_id": 94,
+      "series": "Dragon Ball Super",
+      "question": "Who defeats Moro in Dragon Ball Super?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 95,
+      "series": "Dragon Ball Movies",
+      "question": "Who is the villain in Dragon Ball Z: The Return of Cooler?",
+      "answer": "Meta-Cooler"
+    },
+    {
+      "_id": 96,
+      "series": "Dragon Ball",
+      "question": "Who is Goku's best friend from his childhood?",
+      "answer": "Krillin"
+    },
+    {
+      "_id": 97,
+      "series": "Dragon Ball Z",
+      "question": "Who fights Perfect Cell in the Cell Games?",
+      "answer": "Gohan"
+    },
+    {
+      "_id": 98,
+      "series": "Dragon Ball GT",
+      "question": "Who sacrifices himself to stop Omega Shenron?",
+      "answer": "Goku"
+    },
+    {
+      "_id": 99,
+      "series": "Dragon Ball Super",
+      "question": "Who defeats Jiren in the Tournament of Power?",
+      "answer": "Goku and Frieza"
+    },
+    {
+      "_id": 100,
+      "series": "Dragon Ball Movies",
+      "question": "Who does Goku fight in Dragon Ball Z: Battle of Gods?",
+      "answer": "Beerus"
+    }
+]
