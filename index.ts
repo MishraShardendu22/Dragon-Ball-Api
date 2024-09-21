@@ -63,8 +63,8 @@ app.get("/random", async (req, res) => {
 // Get a question by ID
 app.get("/question/:id", async (req, res) => {
   try {
-    const id: number = parseInt(req.params.id);
-    const data = await Data.findById(id);
+    const id = parseInt(req.params.id);
+    const data = await Data.findOne({ _id: id }); // Assuming you use an integer-based _id
 
     if (!data) {
       return res.status(404).json({ message: `No question with such ID. The given ID is ${id > 0 ? "too big" : "too small"}` });
@@ -77,11 +77,12 @@ app.get("/question/:id", async (req, res) => {
   }
 });
 
+
 // Get a question by series
 app.get("/series/:series", async (req, res) => {
   try {
     const seriesName = req.params.series;
-    const data = await Data.findOne({ series: seriesName });
+    const data = await Data.find({ series: seriesName }).limit(5);
 
     if (!data) {
       return res.status(404).json({ message: 'No such series exists' });
@@ -128,7 +129,7 @@ app.put("/question/:id", async (req, res) => {
       answer: data.answer
     }, { new: true });
 
-    if (!updatedData) {
+      if (!updatedData) {
       return res.status(404).json({ message: 'Question not found' });
     }
 
