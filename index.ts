@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname,'index.html'));
+    res.send("Welcome to the Dragon Ball API => Here is the Link to the Docs : https://shardendu-mishra-documentation-dragon-ball-api.vercel.app/ ");
 });
 
 // Get a token for admin actions
