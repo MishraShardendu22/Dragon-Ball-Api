@@ -191,6 +191,7 @@ app.delete("/delete", verifyToken, async (req, res) => {
   }
 });
 
+
 app.get('/', (req: Request, res: Response) => {
     res.send("Hi Bro")
 })
