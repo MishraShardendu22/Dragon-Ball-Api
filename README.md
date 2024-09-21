@@ -1,11 +1,15 @@
-Here's the README.md file for your Dragon Ball API project:
-
 # Dragon Ball API
 
 **Love Dragon Ball?** This API is made for all Dragon Ball fans! Access, update, and manage your favorite Dragon Ball data with our custom-built API.
 
-[![API Documentation](https://img.shields.io/badge/Docs-Available-brightgreen)](https://shardendu-mishra-documentation-dragon-ball-api.vercel.app)  
-[![API Link](https://img.shields.io/badge/API-Link-blue)](https://dragon-ball-api-grlr.onrender.com)
+<p align="center">
+  <a href="https://shardendu-mishra-documentation-dragon-ball-api.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/View%20Docs%20Here-Click%20Me-brightgreen?style=for-the-badge" alt="API Documentation">
+  </a>
+  <a href="https://dragon-ball-api-grlr.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/API-Link-blue?style=for-the-badge" alt="API Link">
+  </a>
+</p>
 
 ---
 
@@ -40,11 +44,20 @@ For more detailed documentation, visit the [API Docs](https://shardendu-mishra-d
 
 ## Tech Stack
 
-- ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-- ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-- ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-- ![Nextra](https://img.shields.io/badge/Nextra-007ACC?style=for-the-badge&logo=vercel&logoColor=white)
+- ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)  
+  **Express.js:** A fast and minimalist web framework for Node.js used for building APIs.
+  
+- ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)  
+  **TypeScript:** A strongly-typed superset of JavaScript that enhances code quality and scalability.
+
+- ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)  
+  **JWT (JSON Web Tokens):** Secure token-based authentication mechanism for protecting routes.
+
+- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)  
+  **MongoDB:** A NoSQL database used for flexible and scalable data storage.
+
+- ![Nextra](https://img.shields.io/badge/Nextra-007ACC?style=for-the-badge&logo=vercel&logoColor=white)  
+  **Nextra:** A static site generator used for creating the project’s documentation.
 
 ---
 
@@ -86,7 +99,3 @@ curl -X GET https://dragon-ball-api-grlr.onrender.com/random
 Feel free to open issues or contribute to this project by submitting pull requests.
 
 ---
-
-## License
-
-This project is licensed under the MIT License.
