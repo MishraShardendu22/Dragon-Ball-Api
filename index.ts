@@ -20,10 +20,10 @@ const app = express();
 
 // Serve static files from the public directory
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname,'index.html'));
 });
 
 // Get a token for admin actions
