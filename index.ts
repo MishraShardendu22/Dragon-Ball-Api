@@ -17,9 +17,9 @@ declare module 'express-serve-static-core' {
 
 const Port = process.env.PORT || 4000;
 const app = express();
-app.use(express.json());
 
 // Serve static files from the public directory
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req: Request, res: Response) => {
