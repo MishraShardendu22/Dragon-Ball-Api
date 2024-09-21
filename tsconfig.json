@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,  // Add this option
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "target": "ES6",
     "strict": true,
-    "skipLibCheck": true
   }
 }
