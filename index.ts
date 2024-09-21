@@ -4,6 +4,7 @@ import Data from './Model/pattern.model';
 import jwt from 'jsonwebtoken';
 import express, { Response, Request, NextFunction } from 'express';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
@@ -17,6 +18,13 @@ declare module 'express-serve-static-core' {
 const Port = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Get a token for admin actions
 app.post('/GetTokenAdmin', (req, res) => {
@@ -64,7 +72,7 @@ app.get("/random", async (req, res) => {
 app.get("/question/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    const data = await Data.findOne({ _id: id }); // Assuming you use an integer-based _id
+    const data = await Data.findOne({ _id: id });
 
     if (!data) {
       return res.status(404).json({ message: `No question with such ID. The given ID is ${id > 0 ? "too big" : "too small"}` });
@@ -76,7 +84,6 @@ app.get("/question/:id", async (req, res) => {
     res.status(500).json({ message: 'Failed to find a question by ID' });
   }
 });
-
 
 // Get a question by series
 app.get("/series/:series", async (req, res) => {
@@ -129,7 +136,7 @@ app.put("/question/:id", async (req, res) => {
       answer: data.answer
     }, { new: true });
 
-      if (!updatedData) {
+    if (!updatedData) {
       return res.status(404).json({ message: 'Question not found' });
     }
 
@@ -190,11 +197,6 @@ app.delete("/delete", verifyToken, async (req, res) => {
     res.status(500).json({ message: 'Failed to reset data' });
   }
 });
-
-
-app.get('/', (req: Request, res: Response) => {
-    res.send("Hi Bro")
-})
 
 // Server setup
 app.listen(Port, async () => {
