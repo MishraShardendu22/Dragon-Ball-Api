@@ -6,7 +6,7 @@
   <a href="https://shardendu-mishra-documentation-dragon-ball-api.vercel.app" target="_blank">
     <img src="https://img.shields.io/badge/View%20Docs%20Here-Click%20Me-brightgreen?style=for-the-badge" alt="API Documentation">
   </a>
-  <a href="https://dragon-ball-api-grlr.onrender.com" target="_blank">
+  <a href="https://dragon-ball-api-grlr.onrender.com/" target="_blank">
     <img src="https://img.shields.io/badge/API-Link-blue?style=for-the-badge" alt="API Link">
   </a>
 </p>
