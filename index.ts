@@ -8,8 +8,6 @@ import path from 'path';
 import cors from 'cors';
 
 // Use CORS middleware
-app.use(cors());
-
 app.use(cors({
   origin: 'http://localhost:5173'  // Replace with your frontend URL
 }));
