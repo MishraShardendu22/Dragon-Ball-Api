@@ -1,3 +1,4 @@
+// Import necessary modules
 import AddInitialData from './AddingToDataSet/AddingToDataSet';
 import dbConnect from './dbConnect/dbConnect';
 import Data from './Model/pattern.model';
@@ -7,33 +8,37 @@ import dotenv from 'dotenv';
 import path from 'path';
 import cors from 'cors';
 
-// Use CORS middleware
+// Initialize express app
+const app = express();
+
+// Use CORS middleware to allow requests from the frontend
 app.use(cors({
-  origin: 'http://localhost:5173'  // Replace with your frontend URL
+  origin: 'http://localhost:5173'  // Allow your frontend URL
 }));
 
-
+// Load environment variables
 dotenv.config();
 
-// Extend the Request interface to include the user property
+// Extend the Request interface to include the user property for JWT
 declare module 'express-serve-static-core' {
   interface Request {
     user?: any;
   }
 }
 
+// Set the port to the one from environment variables or 4000
 const Port = process.env.PORT || 4000;
-const app = express();
 
-// Serve static files from the public directory
+// Middleware for JSON parsing and serving static files
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
+// Root route, documentation link
 app.get('/', (req: Request, res: Response) => {
-    res.send("Welcome to the Dragon Ball API => Here is the Link to the Docs : https://shardendu-mishra-documentation-dragon-ball-api.vercel.app/ ");
+    res.send("Welcome to the Dragon Ball API => Here is the Link to the Docs : https://shardendu-mishra-documentation-dragon-ball-api.vercel.app/");
 });
 
-// Get a token for admin actions
+// Admin login route, returns a JWT token
 app.post('/GetTokenAdmin', (req, res) => {
   const { username, password } = req.body;
 
@@ -45,7 +50,7 @@ app.post('/GetTokenAdmin', (req, res) => {
   }
 });
 
-// Token verification middleware
+// JWT token verification middleware
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
 
@@ -64,7 +69,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-// Get a random question
+// Route to get a random question
 app.get("/random", async (req, res) => {
   try {
     const randomData = await Data.aggregate([{ $sample: { size: 1 } }]);
@@ -75,7 +80,7 @@ app.get("/random", async (req, res) => {
   }
 });
 
-// Get a question by ID
+// Route to get a question by its ID
 app.get("/question/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -92,7 +97,7 @@ app.get("/question/:id", async (req, res) => {
   }
 });
 
-// Get a question by series
+// Route to get questions by series
 app.get("/series/:series", async (req, res) => {
   try {
     const seriesName = req.params.series;
@@ -109,7 +114,7 @@ app.get("/series/:series", async (req, res) => {
   }
 });
 
-// Add a new question
+// Route to add a new question
 app.post('/add', async (req, res) => {
   try {
     const data = req.body;
@@ -131,7 +136,7 @@ app.post('/add', async (req, res) => {
   }
 });
 
-// Update a question by ID (full update)
+// Route to update a question by ID (full update)
 app.put("/question/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -154,7 +159,7 @@ app.put("/question/:id", async (req, res) => {
   }
 });
 
-// Update a question by ID (partial update)
+// Route to update a question by ID (partial update)
 app.patch("/question/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -177,7 +182,7 @@ app.patch("/question/:id", async (req, res) => {
   }
 });
 
-// Delete a question by ID
+// Route to delete a question by ID (admin token required)
 app.delete("/question/:id", verifyToken, async (req, res) => {
   try {
     const id = req.params.id;
@@ -194,7 +199,7 @@ app.delete("/question/:id", verifyToken, async (req, res) => {
   }
 });
 
-// Delete all questions (reset)
+// Route to reset all questions (admin token required)
 app.delete("/delete", verifyToken, async (req, res) => {
   try {
     const result = await Data.deleteMany({});
@@ -205,7 +210,7 @@ app.delete("/delete", verifyToken, async (req, res) => {
   }
 });
 
-// Server setup
+// Server setup, database connection, and initial data population
 app.listen(Port, async () => {
   try {
     await dbConnect();
