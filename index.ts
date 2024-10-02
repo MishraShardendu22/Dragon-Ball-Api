@@ -6,15 +6,9 @@ import jwt from 'jsonwebtoken';
 import express, { Response, Request, NextFunction } from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import cors from 'cors';
 
 // Initialize express app
 const app = express();
-
-// Use CORS middleware to allow requests from the frontend
-app.use(cors({
-  origin: 'http://localhost:5173'  // Allow your frontend URL
-}));
 
 // Load environment variables
 dotenv.config();
