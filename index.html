@@ -412,16 +412,49 @@
       justify-content: space-between;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .app-layout {
-        grid-template-columns: 1fr;
+    /* Motion & Animation Tokens */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      .sidebar-nav {
-        display: none;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      .endpoint-body {
-        grid-template-columns: 1fr;
+    }
+
+    @keyframes pulseBadge {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-section {
+      animation: fadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    button:active, .run-btn:active, .header-btn:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-card, .hero-section {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
       }
     }
   </style>
@@ -507,7 +540,7 @@
       </section>
 
       <!-- Endpoint 1: GET /api/qns -->
-      <article id="qns-list" class="endpoint-card">
+      <article id="qns-list" class="endpoint-card reveal-card">
         <div class="endpoint-header">
           <div class="endpoint-meta">
             <span class="badge-method badge-get">GET</span>
@@ -534,7 +567,7 @@
       </article>
 
       <!-- Endpoint 2: POST /login -->
-      <article id="auth-login" class="endpoint-card">
+      <article id="auth-login" class="endpoint-card reveal-card">
         <div class="endpoint-header">
           <div class="endpoint-meta">
             <span class="badge-method badge-post">POST</span>
@@ -566,6 +599,19 @@
   </div>
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal-card').forEach((el) => observer.observe(el));
+    });
+
     async function executeApiCall(endpoint, method, payloadId, responseId, statusId) {
       const responseEl = document.getElementById(responseId);
       const statusEl = document.getElementById(statusId);
