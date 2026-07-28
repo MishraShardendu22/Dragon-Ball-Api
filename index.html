@@ -1,14 +1,619 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/icons-WPG4Er4b.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dragon Ball API</title>
-    <script type="module" crossorigin src="/assets/index-CZJd9U-d.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DK6AeSpT.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragon Ball API — Interactive Developer Documentation & Explorer</title>
+  <meta name="description" content="Production-grade API Explorer and Interactive Documentation for Dragon Ball API with live sandbox, authentication testing, and schema specifications.">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Dragon Ball API — Interactive Explorer">
+  <meta property="og:description" content="Explore and test Dragon Ball API endpoints with live request sandbox and OpenAPI specifications.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #09090b;
+      --bg-raised: #121318;
+      --bg-overlay: #1c1d24;
+      --border-default: #27272a;
+      --border-subtle: #1f1f23;
+      --border-focus: #6366f1;
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --accent-muted: rgba(99, 102, 241, 0.15);
+      
+      --method-get: #10b981;
+      --method-get-bg: rgba(16, 185, 129, 0.12);
+      --method-post: #3b82f6;
+      --method-post-bg: rgba(59, 130, 246, 0.12);
+      --method-put: #f59e0b;
+      --method-put-bg: rgba(245, 158, 11, 0.12);
+      --method-delete: #ef4444;
+      --method-delete-bg: rgba(239, 68, 68, 0.12);
+
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .top-header {
+      background-color: var(--bg-raised);
+      border-bottom: 1px solid var(--border-default);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .top-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 16px;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .version-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      background: var(--accent-muted);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 99px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-btn {
+      background: var(--bg-overlay);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-default);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--text-muted);
+      background: #23242d;
+    }
+
+    /* Main Container */
+    .app-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: calc(100vh - 61px);
+    }
+
+    /* Sidebar Nav */
+    .sidebar-nav {
+      background: var(--bg-base);
+      border-right: 1px solid var(--border-subtle);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 61px;
+      height: calc(100vh - 61px);
+      overflow-y: auto;
+    }
+
+    .sidebar-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      background: var(--bg-raised);
+      color: var(--text-primary);
+    }
+
+    .badge-method {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-get { color: var(--method-get); background: var(--method-get-bg); }
+    .badge-post { color: var(--method-post); background: var(--method-post-bg); }
+    .badge-put { color: var(--method-put); background: var(--method-put-bg); }
+    .badge-delete { color: var(--method-delete); background: var(--method-delete-bg); }
+
+    /* Main Content */
+    .main-content {
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .hero-section {
+      background: var(--bg-raised);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+      max-width: 720px;
+    }
+
+    /* Auth Banner */
+    .auth-banner {
+      background: var(--bg-raised);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .auth-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .auth-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .auth-input-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      max-width: 440px;
+    }
+
+    .input-field {
+      background: var(--bg-base);
+      border: 1px solid var(--border-default);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      width: 100%;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .input-field:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* Explorer Section */
+    .endpoint-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .endpoint-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .endpoint-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .endpoint-path {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .endpoint-desc {
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .run-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .run-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .endpoint-body {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .panel-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .code-editor {
+      width: 100%;
+      height: 180px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      color: #818cf8;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .response-box {
+      width: 100%;
+      height: 180px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      color: #34d399;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+
+    .status-line {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .app-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-nav {
+        display: none;
+      }
+      .endpoint-body {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div class="brand-wrap">
+        <div class="brand-icon">🐉</div>
+        <span class="brand-title">Dragon Ball API</span>
+        <span class="version-tag">v1.0.0</span>
+      </div>
+      <div class="header-actions">
+        <a href="/api-docs" class="header-btn" title="Open Swagger Documentation">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          Swagger Docs
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar-nav" aria-label="Endpoint Navigation">
+      <div>
+        <div class="sidebar-group-title">Authentication</div>
+        <a href="#auth-register" class="nav-item">
+          <span class="badge-method badge-post">POST</span>
+          /register
+        </a>
+        <a href="#auth-login" class="nav-item">
+          <span class="badge-method badge-post">POST</span>
+          /login
+        </a>
+      </div>
+
+      <div>
+        <div class="sidebar-group-title">Questions & Data</div>
+        <a href="#qns-list" class="nav-item">
+          <span class="badge-method badge-get">GET</span>
+          /api/qns
+        </a>
+        <a href="#qns-create" class="nav-item">
+          <span class="badge-method badge-post">POST</span>
+          /api/qns
+        </a>
+        <a href="#qns-update" class="nav-item">
+          <span class="badge-method badge-put">PUT</span>
+          /api/qns/:id
+        </a>
+        <a href="#qns-delete" class="nav-item">
+          <span class="badge-method badge-delete">DEL</span>
+          /api/qns/:id
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Section -->
+    <main class="main-content">
+      <!-- Hero -->
+      <section class="hero-section">
+        <h1 class="hero-title">Dragon Ball API Explorer</h1>
+        <p class="hero-subtitle">High-performance REST API supplying comprehensive character trivia, quiz questions, and universe telemetry data. Built with Express, TypeScript, and JWT Authentication.</p>
+      </section>
+
+      <!-- Auth Banner -->
+      <section class="auth-banner">
+        <div>
+          <div class="auth-title">JWT Authorization Token</div>
+          <div class="auth-desc">Bearer token attached automatically to protected endpoints</div>
+        </div>
+        <div class="auth-input-group">
+          <input type="text" id="global-jwt-token" class="input-field" placeholder="Paste Bearer Token here..." aria-label="Bearer Token">
+        </div>
+      </section>
+
+      <!-- Endpoint 1: GET /api/qns -->
+      <article id="qns-list" class="endpoint-card">
+        <div class="endpoint-header">
+          <div class="endpoint-meta">
+            <span class="badge-method badge-get">GET</span>
+            <span class="endpoint-path">/api/qns</span>
+            <span class="endpoint-desc">— Fetch questions dataset</span>
+          </div>
+          <button type="button" class="run-btn" onclick="executeApiCall('/api/qns', 'GET', null, 'response-qns-list', 'status-qns-list')">
+            Execute Request
+          </button>
+        </div>
+        <div class="endpoint-body">
+          <div>
+            <div class="panel-title">Request Parameters</div>
+            <textarea class="code-editor" readonly>None (Public or Authenticated)</textarea>
+          </div>
+          <div>
+            <div class="status-line">
+              <span>RESPONSE PAYLOAD</span>
+              <span id="status-qns-list">Status: Ready</span>
+            </div>
+            <pre id="response-qns-list" class="response-box">Press "Execute Request" to test endpoint...</pre>
+          </div>
+        </div>
+      </article>
+
+      <!-- Endpoint 2: POST /login -->
+      <article id="auth-login" class="endpoint-card">
+        <div class="endpoint-header">
+          <div class="endpoint-meta">
+            <span class="badge-method badge-post">POST</span>
+            <span class="endpoint-path">/login</span>
+            <span class="endpoint-desc">— Authenticate user and receive JWT token</span>
+          </div>
+          <button type="button" class="run-btn" onclick="executeApiCall('/login', 'POST', 'payload-login', 'response-login', 'status-login')">
+            Execute Request
+          </button>
+        </div>
+        <div class="endpoint-body">
+          <div>
+            <div class="panel-title">Request Body (JSON)</div>
+            <textarea id="payload-login" class="code-editor">{
+  "username": "goku",
+  "password": "super-saiyan-password"
+}</textarea>
+          </div>
+          <div>
+            <div class="status-line">
+              <span>RESPONSE PAYLOAD</span>
+              <span id="status-login">Status: Ready</span>
+            </div>
+            <pre id="response-login" class="response-box">Press "Execute Request" to test endpoint...</pre>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    async function executeApiCall(endpoint, method, payloadId, responseId, statusId) {
+      const responseEl = document.getElementById(responseId);
+      const statusEl = document.getElementById(statusId);
+      const jwtToken = document.getElementById('global-jwt-token').value.trim();
+
+      responseEl.textContent = 'Sending HTTP Request...';
+      statusEl.textContent = 'Status: Pending';
+
+      const options = {
+        method: method,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      if (jwtToken) {
+        options.headers['Authorization'] = `Bearer ${jwtToken}`;
+      }
+
+      if (payloadId && (method === 'POST' || method === 'PUT')) {
+        try {
+          const raw = document.getElementById(payloadId).value;
+          options.body = JSON.stringify(JSON.parse(raw));
+        } catch (e) {
+          responseEl.textContent = 'Invalid JSON in request body payload.';
+          statusEl.textContent = 'Status: Error';
+          return;
+        }
+      }
+
+      const startTime = performance.now();
+      try {
+        const res = await fetch(endpoint, options);
+        const duration = Math.round(performance.now() - startTime);
+        statusEl.textContent = `${res.status} ${res.statusText} (${duration}ms)`;
+
+        const data = await res.json().catch(() => ({ message: 'Non-JSON response' }));
+        responseEl.textContent = JSON.stringify(data, null, 2);
+
+        if (data.token) {
+          document.getElementById('global-jwt-token').value = data.token;
+        }
+      } catch (err) {
+        const duration = Math.round(performance.now() - startTime);
+        statusEl.textContent = `Failed (${duration}ms)`;
+        responseEl.textContent = `Network Error: ${err.message}`;
+      }
+    }
+  </script>
+</body>
 </html>
